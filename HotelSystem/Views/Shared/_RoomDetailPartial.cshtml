@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HotelSystem.ViewModels.RoomDetailViewModel>
+
+
+<table class="table-responsive table-hover table-bordered" style="width:100%">
+    <thead >
+        <tr style="background-color: cornflowerblue;height: 40px;font-size:17px;">
+            <th class="text-center">Action</th>
+            <th class="text-center">Image</th>
+            <th class="text-center">Room No</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Type</th>
+            <th class="text-center">Capacity</th>
+        </tr>
+
+    </thead>
+
+    <tbody >
+        @foreach (var item in Model)
+        {
+            <tr class="text-center" style="padding-top:40px;font-size:15px;height:10px;">
+                <td class="text-center">
+                    <span id="btnDelete" class="glyphicon glyphicon-trash" onclick="DeleteRoom(@item.RoomId)"></span>&nbsp;
+                    <span id="btnEdit" class="glyphicon glyphicon-pencil" onclick="EditRoom(@item.RoomId)"></span>&nbsp;
+                </td>
+                <td class="text-center">
+
+                <img src="@Url.Content("~/Images/" + item.RoomImage)" 
+                     width="80"height="80" style="margin-left:auto;margin-right:auto" class="img-responsive text-center" />
+                </td>
+                <td class="text-center">@item.RoomNumber</td>
+                <td class="text-center">@item.RoomPrice</td>
+                <td class="text-center">@item.BookingStatus</td>
+                <td class="text-center">@item.RoomType</td>
+                <td class="text-center">@item.RoomCapacity</td>
+            </tr>
+
+
+        }
+    </tbody>
+</table>
+

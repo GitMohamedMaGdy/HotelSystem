@@ -1,0 +1,41 @@
+﻿@model IEnumerable<HotelSystem.ViewModels.RoomBokingViewModel>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<table class="table-responsive table-hover table-bordered" style="width:100%">
+    <thead>
+        <tr style="background-color: cornflowerblue; height: 40px;font-size:17px;">
+            <th class="text-center">Name</th>
+            <th class="text-center">Address</th>
+            <th class="text-center">Phone</th>
+            <th class="text-center">Booking From</th>
+            <th class="text-center">Booking To</th>
+            <th class="text-center">Room</th>
+            <th class="text-center">Members</th>
+            <th class="text-center">Days</th>
+            <th class="text-center">price</th>
+            <th class="text-center">total Amount</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="text-center" style="padding-top: 40px; font-size: 15px; height: 50px;">
+
+            <td class="text-center">@item.CustomerName</td>
+            <td class="text-center">@item.CustomerAddress</td>
+            <td class="text-center">@item.CustomerPhone</td>
+            <td class="text-center">@item.BookingFrom.ToString("dd-MM-yyyy")</td>
+            <td class="text-center">@item.BookingTo.ToString("dd-MM-yyyy")</td>
+            <td class="text-center">@item.RoomNumber</td>
+            <td class="text-center">@item.NumberOfMembers</td>
+            <td class="text-center">@item.NumberOfDays</td>
+            <td class="text-center">@item.RoomPrice.ToString("#,##0.00")</td>
+            <td class="text-center">@item.totalAmount.ToString("#,##0.00")</td>
+        </tr>
+
+
+        }
+    </tbody>
+</table>
+
